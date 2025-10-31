@@ -3,82 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Information Management System (SIMS)</title>
-  <!-- Bootstrap CSS for styling -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> <!-- Custom CSS if needed -->
+  <title>Student Information Management System</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container mt-5">
-    <h1 class="text-center">Student Information Management System</h1>
-
-    <!-- Form to add a student -->
-    <form id="studentForm" class="mt-4">
-      <div class="mb-3">
-        <label for="studentId" class="form-label">Student ID</label>
-        <input type="text" class="form-control" id="studentId" required>
-      </div>
-      <div class="mb-3">
-        <label for="fullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="fullName" required>
-      </div>
-      <div class="mb-3">
-        <label for="gender" class="form-label">Gender</label>
-        <select class="form-control" id="gender" required>
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="gmail" class="form-label">Gmail</label>
-        <input type="email" class="form-control" id="gmail" required>
-      </div>
-      <div class="mb-3">
-        <label for="program" class="form-label">Program</label>
-        <input type="text" class="form-control" id="program" required>
-      </div>
-      <div class="mb-3">
-        <label for="yearLevel" class="form-label">Year Level</label>
-        <input type="number" class="form-control" id="yearLevel" required>
-      </div>
-      <div class="mb-3">
-        <label for="university" class="form-label">University</label>
-        <input type="text" class="form-control" id="university" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Add Student</button>
-    </form>
-
-    <!-- Search/Filter Section -->
-    <div class="mt-4">
-      <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search by Name, Program, or Gender">
-      <button id="searchButton" class="btn btn-secondary">Search</button>
-    </div>
-
-    <!-- Table to display students -->
-    <h3 class="mt-4">Student List</h3>
-    <table id="studentTable" class="table table-striped mt-3">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Full Name</th>
-          <th>Gender</th>
-          <th>Gmail</th>
-          <th>Program</th>
-          <th>Year Level</th>
-          <th>University</th>
-          <th>Actions</th> <!-- For delete button -->
-        </tr>
-      </thead>
-      <tbody id="studentBody">
-        <!-- Students will be dynamically added here -->
-      </tbody>
-    </table>
+  <div class="sidebar">
+    <h2 class="logo">SIMS</h2>
+    <ul>
+      <li><a href="#" id="add-student-btn" class="active">Add Student</a></li>
+      <li><a href="#" id="student-list-btn">Student List</a></li>
+    </ul>
+    <p class="footer">©️ BUCONG | ARRO </p>
   </div>
 
-  <!-- JavaScript files -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script> <!-- Our custom JavaScript -->
+  <div class="main">
+    <h1>Student Information Management System</h1>
+
+    <!-- ===== ADD STUDENT SECTION ===== -->
+    <div id="add-student-section" class="card">
+      <h2>Add Student</h2>
+      <p>Create a new student record — all fields required.</p>
+
+      <form id="studentForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Student ID</label>
+            <input type="text" id="studentId" placeholder="BP-001-00001" required>
+          </div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="fullName" placeholder="First Last" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Gender</label>
+            <select id="gender" required>
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Gmail</label>
+            <input type="email" id="gmail" placeholder="user@gmail.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Program</label>
+            <input type="text" id="program" placeholder=" BS Information Technology" required>
+          </div>
+          <div class="form-group">
+            <label>Year Level</label>
+            <select id="yearLevel" required>
+              <option value="">Select Year</option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+              <option value="5th Year">5th Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label>University</label>
+            <select id="university" required>
+              <option value="">Select University</option>
+              <option value="Caraga State University Main Campus">Caraga State University Main Campus</option>
+              <option value="Caraga State University Cabadbaran Campus">Caraga State University Cabadbaran Campus</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn save">Save Student</button>
+          <button type="reset" class="btn reset">Reset</button>
+        </div>
+      </form>
+    </div>
+
+<!-- ===== STUDENT LIST SECTION ===== -->
+<div id="student-list-section" class="card hidden">
+  <h2>Student List</h2>
+  <p>Browse and manage student records.</p>
+
+  <div class="search-filter-row">
+    <input type="text" id="search" placeholder="Search by name, ID, program, or university...">
+    <select id="genderFilter">
+      <option value="All">All Genders</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+
+  <p id="studentCount" class="student-count"></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Full Name</th>
+        <th>Gender</th>
+        <th>Gmail</th>
+        <th>Program</th>
+        <th>Year Level</th>
+        <th>University</th>
+      </tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+  </table>
+</div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>

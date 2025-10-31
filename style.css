@@ -1,3 +1,235 @@
+/* === GLOBAL STYLES === */
 body {
-  background-color: #f8f9fa; /* Light background for better readability */
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f9f4; 
+  color: #004d26; 
+  display: flex;
+  height: 100vh;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 240px;
+  background-color: #006400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo {
+  color: #f9dc07;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin: 5px 15px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background-color: #009900; 
+  color: #f9dc07; 
+}
+
+.sidebar .footer {
+  margin-top: auto;
+  font-size: 0.9em;
+  color: #f9dc07;
+  font-weight: bold;
+}
+
+/* === MAIN SECTION === */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+h1 {
+  color: #006400;
+  margin-bottom: 30px;
+  border-left: 6px solid #f9dc07;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+/* === CARD BOX === */
+.card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  color: #004d26;
+  max-height: 80vh; 
+  overflow-y: auto; 
+  scrollbar-width: thin; 
+  scrollbar-color: #006400 #e8f5e9;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === FORM === */
+form {
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #006400;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #a5d6a7;
+  border-radius: 6px;
+  font-size: 1em;
+  background-color: #f1f8e9;
+  color: #004d26;
+}
+
+input::placeholder {
+  color: #558b2f;
+}
+
+/* === BUTTONS === */
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn.save {
+  background-color: #009900;
+  color: #ffffff;
+}
+
+.btn.save:hover {
+  background-color: #006400;
+}
+
+.btn.reset {
+  background-color: #f9dc07;
+  color: #004d26;
+}
+
+.btn.reset:hover {
+  background-color: #f1c900;
+}
+
+/* === TABLE === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #006400;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f8e9;
+}
+
+tr:hover {
+  background-color: #c8e6c9;
+}
+
+/* === SEARCH & FILTER ROW === */
+.search-filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+#search {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #009900;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #004d26;
+  max-width: 950px; 
+}
+
+#search::placeholder {
+  color: #66bb6a;
+}
+
+#genderFilter {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #009900;
+  background-color: #006400;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#genderFilter:hover {
+  background-color: #009900;
+}
+
+/* === STUDENT COUNT === */
+.student-count {
+  font-weight: bold;
+  color: #006400;
+  margin-bottom: 10px;
+  font-size: 1em;
+  text-align: right;
 }
